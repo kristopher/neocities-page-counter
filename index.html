@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="http://js.pusher.com/2.1/pusher.min.js"></script>
+    <script type="text/javascript">
+      var pusher = new Pusher('4e59bb6615620256204d'),
+          channel = pusher.subscribe('test');
+
+      channel.bind('hit', function(data) {
+        alert('hit');
+      })
+      $(function() {
+        $('form').on('submit', function() {
+          $.post('http://localhost:9292/', {
+            subdomain: 'test'
+          });
+          return false;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form action="" method="post">
+      <input type="hidden" name="subdomain" value="test"/>
+      <input type="submit" value="Hit!"/>
+    </form>
+  </body>
+</html>

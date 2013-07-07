@@ -23,4 +23,6 @@ after_fork do |server, worker|
       puts 'Unicorn worker intercepting TERM and doing nothing. Wait for master to send QUIT'
     end
   end
+
+  Application.run_em
 end

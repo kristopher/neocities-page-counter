@@ -1,9 +1,19 @@
 GEM
-  remote: https://code.stripe.com/
   remote: https://rubygems.org/
   specs:
+    addressable (2.3.5)
     awesome_print (1.1.0)
+    cookiejar (0.3.0)
     dotenv (0.8.0)
+    em-http-request (1.1.0)
+      addressable (>= 2.3.4)
+      cookiejar
+      em-socksify (>= 0.3)
+      eventmachine (>= 1.0.3)
+      http_parser.rb (>= 0.6.0.beta.2)
+    em-socksify (0.3.0)
+      eventmachine (>= 1.0.0.beta.4)
+    eventmachine (1.0.3)
     faker (1.1.2)
       i18n (~> 0.5)
     foreman (0.63.0)
@@ -11,14 +21,20 @@ GEM
       thor (>= 0.13.6)
     heroku-deflater (0.5.1)
       rack (>= 1.4.5)
+    http_parser.rb (0.6.0.beta.2)
     i18n (0.6.4)
     kgio (2.8.0)
+    multi_json (1.7.7)
     newrelic_rpm (3.6.5.130)
+    pusher (0.11.3)
+      multi_json (~> 1.0)
+      signature (~> 0.1.6)
     rack (1.5.2)
     rack-timeout (0.0.4)
     raindrops (0.11.0)
     redis (3.0.4)
     rvm (1.11.3.8)
+    signature (0.1.7)
     thor (0.18.1)
     unicorn (4.6.3)
       kgio (~> 2.6)
@@ -30,10 +46,13 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  em-http-request
+  eventmachine
   faker
   foreman
   heroku-deflater
   newrelic_rpm
+  pusher
   rack-timeout
   redis
   rvm
